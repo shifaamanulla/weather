@@ -13,9 +13,9 @@ background-position: center;
     padding: 5px 5px;
     backdrop-filter: blur(4px) saturate(180%);
 }
-button:hover{
+/* button:hover{
     transform:scale(1.05)
-}
+} */
 
 
 .search_bar input{
@@ -67,9 +67,15 @@ background: linear-gradient(rgba(0, 195, 255, 0.377),rgba(255, 115, 0, 0.26));
      height:400px ;
      margin-top:0px !important;
 }
-.temp1:hover{
+/* .temp1:hover{
     transform: scale(1.05);
 }
 .temp:hover{
 transform:scale(1.05)
+} */
+
+@media(max-width:500px){
+    .search_bar{
+        width:75%;
+    }
 }
