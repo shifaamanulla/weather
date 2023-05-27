@@ -14,15 +14,14 @@
 
 <body>
 
-  <div class=" w-100 text-cener">
-    <form action="" class="search_bar mt-5 w-75 ms-5">
-      <input id="search" type="text" placeholder="search Location ">
-      <button type="button" onclick="searchWeather()" style="border-radius: 50px;"><i
-          class="fa-solid fa-magnifying-glass fa-2x"></i></button>
-
-    </form>
-  </div>
-  
+ 
+   <h1 style="font-family: monospace; color: rgba(255, 72, 0, 0.664);" class="text-center t mt-2 p-5"><strong> <img src="https://i.postimg.cc/ZY1pYGmY/weather-icon-png-2.png" style="width:10%;"alt="">  Know your Weather...</strong></h1>
+   <div class="col-lg-6 col-md-12 col-sm-12 container d-flex p-3 border search_bar">
+       
+    <input id="search" type="text" class="form-control mt-1  me-3" placeholder="Enter location">
+    <button onclick="searchWeather()" style="cursor: pointer;" class=""> <i class="fa-solid fa-magnifying-glass fa-2x mt-2 text-white"></i></button>
+              
+</div>
 
   <div id="result1">
 
@@ -46,7 +45,8 @@
     timezonee = weatherData.timezone
     national = weatherData.sys.country
     feelslike = parseInt((weatherData.main.feels_like) - 273.15)
-    win = weatherData.wind.speed
+    win = Math.round(weatherData.wind.speed * 3.5)
+    icon1 = weatherData.weather[0].icon
 
   result1.innerHTML = `
     <div class=" container mt-5 innerdiv text-center">
@@ -55,7 +55,7 @@
                 <div style="margin-top:100px;">
                     <i class="fa-solid fa-location-dot fa-3x"style="color:white;"> </i><br>
                     <h4 style="color:white;">${name1},${national}</h4>
-                    <h4 style="color:white">${icons} &nbsp; <i class="fa-solid fa-cloud"></i></h4>
+                    <h4 style="color:white">${icons} &nbsp;  <img src="https://openweathermap.org/img/w/${icon1}.png"></h4>
                     <h4 style="color:white">${temper}<sup>o</sup>C<br>
                         mostly feels like ${feelslike}<sup>o</sup>C
                 </div>
@@ -73,9 +73,9 @@
                   
             <h5 class="mt-1 ms-3">Atmospheric Data</h5><br>
 
-                <i class="fa-solid fa-droplet fa-1x"> </i><span class="fs-6" style="color:white">Humidity:${humid}<br></span>
-                <i class="fa-solid fa-wind fa-1x"> </i><span class="fs-6" style="color:white">Wind Speed:${win}</span><br>
-                <i class="fa-solid fa-cloud fa-1x"> </i><class="fs-6" style="color:white"> Pressure:${presure}</class="fs-6" style="color:white">
+                <i class="fa-solid fa-droplet fa-1x"> </i><span class="fs-6" style="color:white">Humidity :${humid}%</span><br>
+                <i class="fa-solid fa-wind fa-1x"> </i><span class="fs-6" style="color:white">Windspeed :${win}Km/h</span><br>
+                <i class="fa-solid fa-cloud fa-1x"> </i><class="fs-6" style="color:white"> Pressure :${presure}hPa</class="fs-6" style="color:white">
 
                 </div>
 
