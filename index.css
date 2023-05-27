@@ -79,6 +79,6 @@ button:hover{
 }
 @media(max-width:500px){
     h1{
-        font-size: medium !important;
+        font-size: larger !important;
     }
 }
